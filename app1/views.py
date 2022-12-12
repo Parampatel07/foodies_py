@@ -26,12 +26,16 @@ def category(req):
     return render(req,"categories.html")
 
 def categoryflow(req,hotelid):
-    table = category_table.objects.filter(id=hotelid).values()
-    print(table)
-    
-    return render(req,"categories.html",{"table":table})
+    table = category_table.objects.filter(shopkeeperid=hotelid).values()
+    print(table)    
+    mytable= divide_parts(table,3)
+    return render(req,"categories.html",{"table":mytable})
 
 def menu(req):
+    # return HttpResponse("this is menu page")
+    return render(req,"menu.html")
+
+def menuflow(req,categoryid):
     # return HttpResponse("this is menu page")
     return render(req,"menu.html")
 
@@ -57,5 +61,5 @@ def contactus(req):
 def hotel(req):
     table = shopkeeper.objects.filter().values()
     mytable = list(divide_parts(table,3))
-    print("this is mytable ",mytable)
+    # print("this is mytable ",mytable)
     return render(req,"hotel.html",{"table":mytable})

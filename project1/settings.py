@@ -71,9 +71,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project1.wsgi.application'
 HOTEL = '../media/hotels/';
+CATEGORY = '../../media/categories/';
 
 SETTINGS_EXPORT = [
     'HOTEL',
+    'CATEGORY',
 ]
 
 # Database
