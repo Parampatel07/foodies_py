@@ -1,0 +1,141 @@
+{% extends 'django_template.html' %} {% load static %} {% block content %}
+<div class="breadcumb-wrapper" data-bg-src="{% static 'img/breadcumb/breadcumb-bg.jpg' %}">
+    <div class="container z-index-common">
+        <div class="breadcumb-content">
+            <h1 class="breadcumb-title">
+                My <span class="font-style text-theme2">Cart</span>
+            </h1>
+            <!-- <ul class="breadcumb-menu"> -->
+            <!-- <li><a href="index.html">Home</a></li> -->
+            <!-- <li>Shop</li> -->
+            <!-- </ul> -->
+        </div>
+    </div>
+</div>
+
+<div class="as-checkout-wrapper mt-5 space-extra-bottom">
+    <div class="container">
+              <div class="row">
+                   <div class="col-lg-8  m-auto">
+                        <h2 class="h4 text-center">Billing Details</h2>
+                     <div class="row">
+                         <form action="">
+                              {% csrf_token %}
+                              <div class="row ">
+                                   <!-- {{my_checkout_form}} -->
+                                   <div class="col-6 mt-3">
+                                        <label for="">Enter your fullname</label>
+                                        {{my_checkout_form.fullname}}
+                                   </div>
+                                   <div class="col-6 mt-3">
+                                        <label for="">Enter your City</label>
+                                        {{my_checkout_form.city}}
+                                   </div>
+                                   <div class="col-6 mt-3">
+                                        <label for="">Enter your Mobile</label>
+                                        {{my_checkout_form.mobile}}
+                                   </div>
+                                   <div class="col-6 mt-3">
+                                        <label for="">Enter your Pincode</label>
+                                        {{my_checkout_form.pincode}}
+                                   </div>
+                                   <div class="col-12 mt-3">
+                                        <label for="">Enter your Address</label>
+                                        {{my_checkout_form.address}}
+                                   </div>
+                                   <!-- {{my_checkout_form.city}} -->
+                              </div>
+                     </div>
+                   </div>
+                   
+              </div>
+        
+         <h4 class="mt-4 pt-lg-2">Your Order</h4>
+              <table class="cart_table mb-20">
+                   <thead>
+                        <tr>
+                             <th class="cart-col-image">Image</th>
+                             <th class="cart-col-productname">Product Name</th>
+                             <th class="cart-col-price">Price</th>
+                             <th class="cart-col-quantity">Quantity</th>
+                             <th class="cart-col-total">Total</th>
+                        </tr>
+                   </thead>
+                   <tbody>
+                        <tr class="cart_item">
+                             <td data-title="Product"><a class="cart-productimage" href="shop-details.html"><img
+                                            width="91" height="91" src="{%static 'img/menu/menu_thumb_1_1.png'%}"
+                                            alt="Image"></a></td>
+                             <td data-title="Name"><a class="cart-productname" href="shop-details.html">Chicken
+                                       Vagetable</a></td>
+                             <td data-title="Price"><span class="amount"><bdi><span>$</span>18</bdi></span></td>
+                             <td data-title="Quantity"><strong class="product-quantity">01</strong></td>
+                             <td data-title="Total"><span class="amount"><bdi><span>$</span>18</bdi></span></td>
+                        </tr>
+                   </tbody>
+                   <tfoot class="checkout-ordertable">
+                        <tr class="cart-subtotal">
+                             <th>Subtotal</th>
+                             <td data-title="Subtotal" colspan="4"><span
+                                       class="woocommerce-Price-amount amount"><bdi><span
+                                                 class="woocommerce-Price-currencySymbol">$</span>281.05</bdi></span>
+                             </td>
+                        </tr>
+                        <tr class="woocommerce-shipping-totals shipping">
+                             <th>Shipping</th>
+                             <td data-title="Shipping" colspan="4">Enter your address to view shipping options.
+                             </td>
+                        </tr>
+                        <tr class="order-total">
+                             <th>Total</th>
+                             <td data-title="Total" colspan="4"><strong><span
+                                            class="woocommerce-Price-amount amount"><bdi><span
+                                                      class="woocommerce-Price-currencySymbol">$</span>281.05</bdi></span></strong>
+                             </td>
+                        </tr>
+                   </tfoot>
+              </table>
+         <div class="mt-lg-3 mb-30">
+              <div class="woocommerce-checkout-payment">
+                   <ul class="wc_payment_methods payment_methods methods">
+                        <li class="wc_payment_method payment_method_bacs"><input id="payment_method_bacs"
+                                  type="radio" class="input-radio" name="payment_method" value="bacs"
+                                  checked="checked"> <label for="payment_method_bacs">Direct bank transfer</label>
+                             <div class="payment_box payment_method_bacs">
+                                  <p>Make your payment directly into our bank account. Please use your Order ID as
+                                       the payment reference. Your order will not be shipped until the funds have
+                                       cleared in our account.</p>
+                             </div>
+                        </li>
+                        <li class="wc_payment_method payment_method_cheque"><input id="payment_method_cheque"
+                                  type="radio" class="input-radio" name="payment_method" value="cheque"> <label
+                                  for="payment_method_cheque">Cheque Payment</label>
+                             <div class="payment_box payment_method_cheque">
+                                  <p>Please send a check to Store Name, Store Street, Store Town, Store State /
+                                       County, Store Postcode.</p>
+                             </div>
+                        </li>
+                        <li class="wc_payment_method payment_method_cod"><input id="payment_method_cod"
+                                  type="radio" class="input-radio" name="payment_method"> <label
+                                  for="payment_method_cod">Credit Cart</label>
+                             <div class="payment_box payment_method_cod">
+                                  <p>Pay with cash upon delivery.</p>
+                             </div>
+                        </li>
+                        <li class="wc_payment_method payment_method_paypal"><input id="payment_method_paypal"
+                                  type="radio" class="input-radio" name="payment_method" value="paypal"> <label
+                                  for="payment_method_paypal">Paypal</label>
+                             <div class="payment_box payment_method_paypal">
+                                  <p>Pay via PayPal; you can pay with your credit card if you don’t have a PayPal
+                                       account.</p>
+                             </div>
+                        </li>
+                   </ul>
+                   <div class="form-row place-order"><button type="submit" class="as-btn">Place order</button>
+                   </div>
+              </div>
+         </div>
+          </form>
+    </div>
+</div>
+{% endblock %}

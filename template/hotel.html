@@ -1,0 +1,63 @@
+{% extends 'django_template.html' %} {% load static %} {% block content %}
+<div class="breadcumb-wrapper" data-bg-src="{% static 'img/breadcumb/breadcumb-bg.jpg' %}">
+    <div class="container z-index-common">
+        <div class="breadcumb-content">
+            <h1 class="breadcumb-title">
+                <span class="font-style text-theme2">Hotel</span>
+            </h1>
+            <!-- <ul class="breadcumb-menu"> -->
+            <!-- <li><a href="index.html">Home</a></li> -->
+            <!-- <li>Shop</li> -->
+            <!-- </ul> -->
+        </div>
+    </div>
+</div>
+<section class="bg-smoke2" data-bg-src="{%static 'img/bg/feature_bg_2.png'%}">
+    <div class="container">
+        <div class="title-area text-center space-top">
+            <span class="sub-title"><img class="icon" src="{%static 'img/icon/title_icon.svg'%}" alt="icon" />
+                Our Hotel</span>
+            <h2 class="sec-title">
+                Wide range of <span class="font-style text-theme">Hotels</span>
+            </h2>
+            <p class="sec-text ms-auto me-auto">
+                Objectively pontificate quality models before intuitive information.
+                Dramatically recaptiualize multifunctional materials.
+            </p>
+        </div>
+        {% for row in table %}
+        <div class="row" data-slide-show="4" data-lg-slide-show="3" data-md-slide-show="2" data-sm-slide-show="2"
+            data-xs-slide-show="1" data-arrows="true">
+            <div class="row justify-content-center">
+                {% for colum in row %}
+                <div class="col-md-6 col-lg-3 col-xxl-3 mb-5">
+                    <div class="team-card">
+                        <div class="team-img">
+                            <img src="{{settings.HOTEL}}{{colum.image}}" style="height: 218px; width: 218px"
+                                class="img-fluid" alt="Team" />
+                        </div>
+                        <div class="team-content">
+                            <h3 class="team-title box-title text-capitalize">
+                                <a href="category/{{colum.id}}">{{colum.companyname}}</a>
+                            </h3>
+                            <span class="team-desig">{{colum.name}}</span>
+                            <div class="as-social">{{colum.desc}}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="shape-mockup leaf jump" style="top: 10%; left: 0px">
+        <img src="{% static 'img/shape/leaf_1.png'%}" alt="shape" />
+    </div>
+    <div class="shape-mockup leaf jump" style="top: 10%; right: 0px">
+        <img src="{% static 'img/shape/leaf_1.png'%}" alt="shape" />
+    </div>
+    <div class="shape-mockup chili jump-reverse" style="right: 0px; bottom: 0%">
+        <img src="{% static 'img/shape/red_chili.png'%}" alt="shape" />
+    </div>
+</section>
+{% endblock %}

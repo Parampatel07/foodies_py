@@ -1,0 +1,133 @@
+{% extends 'django_template.html' %} {% load static %} {% block content %}
+<div class="breadcumb-wrapper" data-bg-src="{% static 'img/breadcumb/breadcumb-bg.jpg' %}">
+    <div class="container z-index-common">
+        <div class="breadcumb-content">
+            <h1 class="breadcumb-title">
+                My <span class="font-style text-theme2">Cart</span>
+            </h1>
+            <!-- <ul class="breadcumb-menu"> -->
+            <!-- <li><a href="index.html">Home</a></li> -->
+            <!-- <li>Shop</li> -->
+            <!-- </ul> -->
+        </div>
+    </div>
+</div>
+
+<div class="as-cart-wrapper space-top space-extra-bottom">
+    <div class="container">
+         <form action="#" class="woocommerce-cart-form">
+              <table class="cart_table">
+                   <thead>
+                        <tr>
+                             <th class="cart-col-image">Image</th>
+                             <th class="cart-col-productname">Product Name</th>
+                             <th class="cart-col-price">Price</th>
+                             <th class="cart-col-quantity">Quantity</th>
+                             <th class="cart-col-total">Total</th>
+                             <th class="cart-col-remove">Remove</th>
+                        </tr>
+                   </thead>
+                   <tbody>
+                        <tr class="cart_item">
+                             <td data-title="Product"><a class="cart-productimage" href="shop-detailis.html"><img
+                                            width="91" height="91" src="{%static 'img/menu/menu_thumb_1_1.png'%}"
+                                            alt="Image"></a></td>
+                             <td data-title="Name"><a class="cart-productname" href="shop-detailis.html">Chicken
+                                       Vagetable</a></td>
+                             <td data-title="Price"><span class="amount"><bdi><span>$</span>18</bdi></span></td>
+                             <td data-title="Quantity">
+                                  <div class="quantity"> <input type="number"
+                                            class="qty-input" value="1" min="1" max="99"> 
+                                  </div>
+                             </td>
+                             <td data-title="Total"><span class="amount"><bdi><span>$</span>18</bdi></span></td>
+                             <td data-title="Remove"><a href="#" class="remove"><i
+                                            class="fal fa-trash-alt"></i></a></td>
+                        </tr>
+                        
+                        <tr class="cart_item">
+                            <td data-title="Product"><a class="cart-productimage" href="shop-detailis.html"><img
+                                           width="91" height="91" src="{%static 'img/menu/menu_thumb_1_1.png'%}"
+                                           alt="Image"></a></td>
+                            <td data-title="Name"><a class="cart-productname" href="shop-detailis.html">Chicken
+                                      Vagetable</a></td>
+                            <td data-title="Price"><span class="amount"><bdi><span>$</span>18</bdi></span></td>
+                            <td data-title="Quantity">
+                                 <div class="quantity"> <input type="number"
+                                           class="qty-input" value="1" min="1" max="99"> 
+                                 </div>
+                            </td>
+                            <td data-title="Total"><span class="amount"><bdi><span>$</span>18</bdi></span></td>
+                            <td data-title="Remove"><a href="#" class="remove"><i
+                                           class="fal fa-trash-alt"></i></a></td>
+                       </tr>
+                       
+                       <tr class="cart_item">
+                        <td data-title="Product"><a class="cart-productimage" href="shop-detailis.html"><img
+                                       width="91" height="91" src="{%static 'img/menu/menu_thumb_1_1.png'%}"
+                                       alt="Image"></a></td>
+                        <td data-title="Name"><a class="cart-productname" href="shop-detailis.html">Chicken
+                                  Vagetable</a></td>
+                        <td data-title="Price"><span class="amount"><bdi><span>$</span>18</bdi></span></td>
+                        <td data-title="Quantity">
+                             <div class="quantity"> <input type="number"
+                                       class="qty-input" value="1" min="1" max="99"> 
+                             </div>
+                        </td>
+                        <td data-title="Total"><span class="amount"><bdi><span>$</span>18</bdi></span></td>
+                        <td data-title="Remove"><a href="#" class="remove"><i
+                                       class="fal fa-trash-alt"></i></a></td>
+                   </tr>
+                   <tr>
+                    <td colspan="6" class="actions">
+                         <div class="as-cart-coupon"><input type="text" class="form-control"
+                                   placeholder="Coupon Code..."> <button type="submit"
+                                   class="as-btn">Apply Coup0on</button></div><button type="submit"
+                              class="as-btn">Update cart</button> <a href="shop.html"
+                              class="as-btn">Continue Shopping</a>
+                    </td>
+               </tr>
+                   </tbody>
+              </table>
+         </form>
+         <div class="row justify-content-end">
+              <div class="col-md-8 col-lg-7 col-xl-6">
+                   <h2 class="h4 summary-title">Cart Totals</h2>
+                   <table class="cart_totals">
+                        <tbody>
+                             <tr>
+                                  <td>Cart Subtotal</td>
+                                  <td data-title="Cart Subtotal"><span
+                                            class="amount"><bdi><span>$</span>47</bdi></span></td>
+                             </tr>
+                             <tr class="shipping">
+                                  <th>Shipping and Handling</th>
+                                  <td data-title="Shipping and Handling">
+                                       <ul class="woocommerce-shipping-methods list-unstyled">
+                                            <li><input type="radio" id="free_shipping" name="shipping_method"
+                                                      class="shipping_method"> <label for="free_shipping">Free
+                                                      shipping</label></li>
+                                            <li><input type="radio" id="flat_rate" name="shipping_method"
+                                                      class="shipping_method" checked="checked"> <label
+                                                      for="flat_rate">Flat rate</label></li>
+                                       </ul>
+                                       <p class="woocommerce-shipping-destination">Shipping options will be
+                                            updated during checkout.</p>
+                                  </td>
+                             </tr>
+                        </tbody>
+                        <tfoot>
+                             <tr class="order-total">
+                                  <td>Order Total</td>
+                                  <td data-title="Total"><strong><span
+                                                 class="amount"><bdi><span>$</span>47</bdi></span></strong></td>
+                             </tr>
+                        </tfoot>
+                   </table>
+                   <div class="wc-proceed-to-checkout mb-30"><a href="checkout" class="as-btn">Proceed to
+                             checkout</a></div>
+              </div>
+         </div>
+    </div>
+</div>
+{% endblock %}

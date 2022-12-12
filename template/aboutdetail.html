@@ -1,0 +1,81 @@
+{% extends 'django_template.html' %} {% load static %} {% block content %}
+<div class="breadcumb-wrapper" data-bg-src="{% static 'img/breadcumb/breadcumb-bg.jpg' %}">
+    <div class="container z-index-common">
+        <div class="breadcumb-content">
+            <h1 class="breadcumb-title">
+                Blogs<span class="font-style text-theme2">Blogs</span>
+            </h1>
+            <!-- <ul class="breadcumb-menu"> -->
+            <!-- <li><a href="index.html">Home</a></li> -->
+            <!-- <li>Shop</li> -->
+            <!-- </ul> -->
+        </div>
+    </div>
+</div>
+<section class="as-blog-wrapper blog-details space-top space-extra-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-xxl-12 col-lg-12">
+                <div class="as-blog blog-single">
+                    <div class="blog-img"><img src="{%static 'img/blog/blog-s-1-1.jpg'%}" class="img-fluid w-100" alt="Blog Image"></div>
+                    <div class="blog-content">
+                        <div class="blog-meta"><a href="blog.html"><i class="fa-regular fa-user"></i>By Pizzer</a>
+                            <a href="blog.html"><i class="fa-light fa-calendar-days"></i>21 June, 2022</a> <a
+                                href="blog-details.html"><i class="fa-regular fa-comments"></i>Comments(3)</a> <a
+                                href="blog.html"><i class="fa-regular fa-tag"></i>Chicken</a></div>
+                        <h2 class="blog-title">10 Reasons To Do A Digital Detox Challenge</h2>
+                        <p>Rapidiously repurpose leading edge growth strategies with just in time web readiness
+                            service Objectively communicate timely meta services for synergistic initiatives
+                            functionalities.</p>
+                        <p>Uniquely pursue emerging experiences before emerging content. Efficiently underwhelm
+                            customer directed total linkage after B2C synergy. Dynamically simplify superior human
+                            capital whereas efficient infrastructures. Authoritatively generate e-business
+                            web-readiness after wireless outsourcing. Seamlessly evisculate visionary scenarios for
+                            resource maximizing mindshare.</p>
+                        <p>Assertively recaptiualize interdependent alignments via backend leadership skills.
+                            Monotonectally formulate focused quality vectors whereas proactive infomediaries.
+                            Energistically utilize ethical initiatives without impactful applications.
+                            Authoritatively coordinate seamless e-services and user friendly information.
+                            Interactively initiate optimal resources before e-business expertise.</p>
+                        <blockquote>
+                            <p>Continually whiteboard enterprise-wide vortals whereas world-class resources. Quickly
+                                brand team building services via functionalized users.</p><cite>Md Sumon Mia</cite>
+                        </blockquote>
+                        <p>Appropriately mesh standards compliant communities vis-a-vis client-centric channels.
+                            Seamlessly reinvent open-source data via bricks-and-clicks bandwidth. Globally leverage
+                            other's inexpensive technologies vis-a-vis user friendly systems. Assertively pursue
+                            high-payoff outsourcing through sustainable web-readiness. Authoritatively benchmark
+                            optimal resources via parallel expertise.</p>
+                        <p>Uniquely seize open-source synergy without leveraged functionalities. Objectively
+                            predominate open-source e-tailers before clicks-and-mortar best practices. Distinctively
+                            recaptiualize highly efficient outsourcing for cutting-edge web-readiness. Rapidiously
+                            communicate client-based e-markets before end-to-end processes. Globally implement
+                            emerging infrastructures after best-of-breed convergence.</p>
+                        
+                    </div>
+                    <div class="share-links clearfix">
+                        <div class="row justify-content-between">
+                            <div class="col-sm-auto"><span class="share-links-title">Tags:</span>
+                                <div class="tagcloud"><a href="blog.html">Fast Food</a> <a
+                                        href="blog.html">Dinner</a></div>
+                            </div>
+                            <div class="col-sm-auto text-xl-end"><span class="share-links-title">Share:</span>
+                                <ul class="social-links">
+                                    <li><a href="https://facebook.com/" target="_blank"><i
+                                                class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="https://twitter.com/" target="_blank"><i
+                                                class="fab fa-twitter"></i></a></li>
+                                    <li><a href="https://linkedin.com/" target="_blank"><i
+                                                class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="https://instagram.com/" target="_blank"><i
+                                                class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
