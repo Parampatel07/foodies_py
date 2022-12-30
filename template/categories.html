@@ -12,6 +12,7 @@
           </div>
      </div>
 </div>
+{% comment %}
 <section class="as-product-wrapper mt-5 space-extra-bottom" data-bg-src="{%static 'img/bg/feature_bg_2.png'%}">
      <div class="container">
           <div class="title-area text-center">
@@ -21,25 +22,29 @@
                     Our Exotic <span class="font-style text-theme">Items</span>
                </h2>
                <p class="sec-text ms-auto me-auto">
-                    Dear diet, things just aren’t looking good for the both of us. It’s not me, it’s you. You’re too much work. You’re boring and I can’t stop cheating on you.
+                    Dear diet, things just aren’t looking good for the both of us. It’s not
+                    me, it’s you. You’re too much work. You’re boring and I can’t stop
+                    cheating on you.
                </p>
-          </div> 
-          <div class="shape-mockup leaf jump" data-top="0%" data-left="0"><img src="{%static 'img/shape/leaf_1.png '%}"
-               alt="shape"></div>
-     <div class="shape-mockup leaf jump" data-top="0%" data-right="0"><img src="{%static 'img/shape/leaf_2.png '%}"
-               alt="shape"></div>
-          <div class="shape-mockup chili jump-reverse" data-bottom="0%" data-right="0"><img
-               src="{%static 'img/shape/red_chili.png' %}" alt="shape"></div>
+          </div>
+          <div class="shape-mockup leaf jump" data-top="0%" data-left="0">
+               <img src="{%static 'img/shape/leaf_1.png '%}" alt="shape" />
+          </div>
+          <div class="shape-mockup leaf jump" data-top="0%" data-right="0">
+               <img src="{%static 'img/shape/leaf_2.png '%}" alt="shape" />
+          </div>
+          <div class="shape-mockup chili jump-reverse" data-bottom="0%" data-right="0">
+               <img src="{%static 'img/shape/red_chili.png' %}" alt="shape" />
+          </div>
           {% for row in table %}
           <div class="row gy-40 justify-content-center mb-5">
                {% for colum in row %}
                <div class="col-xl-3 col-lg-3 col-sm-6">
-                    <div class="as-product ">
+                    <div class="as-product">
                          <div class="product-img">
                               <img src="{{settings.CATEGORY}}{{colum.image}}" alt="Product Image" />
                          </div>
-                         <div class="product-content ">
-                              {% comment %} <a href="#" class="category">Salad</a> {% endcomment %}
+                         <div class="product-content">
                               <div class="product-rating">
                                    <div class="star-rating" role="img" aria-label="Rated 4.00 out of 5">
                                         <span style="width: 75%">Rated <strong class="rating">4.00</strong> out of
@@ -47,12 +52,11 @@
                                    </div>
                                    (4.00)
                               </div>
-                              <h3 class="product-title"><a href="#">{{colum.title}}</a></h3>
-                              {% comment %} <span class="price">$80.85<del>$99.99</del></span> {% endcomment %}
+                              <h3 class="product-title">
+                                   <a href="/app1/menu/{{colum.id}}">{{colum.title}}</a>
+                              </h3>
                               <div class="actions">
-                                   <a href="/app1/menu/{{colum.id}}" class="icon-btn "><i class="fal fa-eye"></i></a>
-                                   {% comment %} <a href="#" class="icon-btn"><i class="fal fa-cart-plus"></i></a> {% endcomment %}
-                                   {% comment %} <a href="#" class="icon-btn"><i class="fal fa-heart"></i></a> {% endcomment %}
+                                   <a href="/app1/menu/{{colum.id}}" class="icon-btn"><i class="fal fa-eye"></i></a>
                               </div>
                          </div>
                     </div>
@@ -62,38 +66,336 @@
           {% endfor %}
      </div>
 </section>
+{% endcomment %}
+<section class="space bg-smoke2" data-bg-src="{%static 'img/bg/product_bg_1.png'%}">
+     <div class="container">
+          <div class="title-area text-center">
+               <span class="sub-title"><img class="icon" src="{%static 'img/icon/title_icon.svg'%}" alt="icon" />
+                    Popular Menu</span>
+               <h2 class="sec-title">
+                    Our Popular Delicious <span class="font-style text-theme">Foods</span>
+               </h2>
+               <p class="sec-text ms-auto me-auto">
+                    Objectively pontificate quality models before intuitive information.
+                    Dramatically recaptiualize multifunctional materials.
+               </p>
+          </div>
+          <div class="nav food-menu-tab" role="tablist">
+               <button class="tab-btn active" id="nav-one-tab" data-bs-toggle="tab" data-bs-target="#nav-one"
+                    type="button" role="tab" aria-controls="nav-one" aria-selected="true">
+                    BREAKFAST
+               </button>
+               <button class="tab-btn" id="nav-two-tab" data-bs-toggle="tab" data-bs-target="#nav-two" type="button"
+                    role="tab" aria-controls="nav-two" aria-selected="false">
+                    LUNCH</button>
+               <button class="tab-btn" id="nav-three-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-three" type="button" role="tab" aria-controls="nav-three" aria-selected="false">
+                    SNACK
+               </button>
+               <button class="tab-btn" id="nav-four-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-four" type="button" role="tab" aria-controls="nav-four" aria-selected="false">
+                    DINNER
+               </button>
+          </div>
+          <div class="tab-content">
+               <div class="tab-pane fade show active" id="nav-one" role="tabpanel" aria-labelledby="nav-one-tab">
+                    <div class="row gy-4 filter-active py-3">
+                         {% for row in breakfast_table %}
+                         {% comment %} <div class="col-lg-6 filter-item cat6 cat1">
+                              <div class="as-product list-view">
+                                   <div class="product-img">
+                                        <img src="{%static 'img/menu/menu_list_1_1.png'%}" alt="Product Image" />
+                                   </div>
+                                   <div class="product-content">
+                                        <h3 class="product-title">
+                                             <a href="shop-details.html">{{row.title}}</a>
+                                        </h3>
+                                        <p class="product-text">
+                                             Rapidiously repurpose customer directed markets. Rapidiously
+                                             enhance extensive.
+                                        </p>
+                                        <span class="price">$180.85<del>$350.99</del></span>
+                                        <div class="actions">
+                                             <a href="#QuickView" class="icon-btn popup-content"><i
+                                                       class="far fa-eye"></i></a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>    {% endcomment %}
+                         <div class="col-md-6 col-lg-4 col-xl-3 filter-item cat6 cat1">
+                              <div class="menu-card ">
+                                   <div class="menu-card_img"><img src="{{settings.CATEGORY}}{{row.image}}" alt="Menu Image" style="border-radius: 200px; width:250px;"></div>
+                                   <div class="menu-card_content">
+                                        <h3 class="menu-card_title box-title"><a href="shop-details.html">{{row.title}}</a>
+                                        </h3>
+                                        <p class="menu-card_text"></p><a href="/app1/menu/{{row.id}}" class="as-btn">BROWSE
+                                             MENU</a>
+                                   </div>
+                              </div>
+                         </div> 
+                         {% endfor %}
+                         <!-- <div class="col-lg-6 filter-item cat4 cat2">
+                              <div class="as-product list-view">
+                                   <div class="product-img">
+                                        <img src="assets/img/menu/menu_list_1_2.png" alt="Product Image" />
+                                   </div>
+                                   <div class="product-content">
+                                        <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
+                                             <span>Rated <strong class="rating">5.00</strong> out of 5 based
+                                                  on <span class="rating">1</span> customer rating</span>
+                                        </div>
+                                        <h3 class="product-title">
+                                             <a href="shop-details.html">Chicken Masala</a>
+                                        </h3>
+                                        <p class="product-text">
+                                             Rapidiously repurpose customer directed markets. Rapidiously
+                                             enhance extensive.
+                                        </p>
+                                        <span class="price">$190.85</span>
+                                        <div class="actions">
+                                             <a href="#QuickView" class="icon-btn popup-content"><i
+                                                       class="far fa-eye"></i></a>
+                                             <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
+                                             <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-lg-6 filter-item cat5 cat3">
+                              <div class="as-product list-view">
+                                   <div class="product-img">
+                                        <img src="assets/img/menu/menu_list_1_3.png" alt="Product Image" />
+                                   </div>
+                                   <div class="product-content">
+                                        <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
+                                             <span>Rated <strong class="rating">5.00</strong> out of 5 based
+                                                  on <span class="rating">1</span> customer rating</span>
+                                        </div>
+                                        <h3 class="product-title">
+                                             <a href="shop-details.html">Sicilian Pizza</a>
+                                        </h3>
+                                        <p class="product-text">
+                                             Rapidiously repurpose customer directed markets. Rapidiously
+                                             enhance extensive.
+                                        </p>
+                                        <span class="price">$160.85</span>
+                                        <div class="actions">
+                                             <a href="#QuickView" class="icon-btn popup-content"><i
+                                                       class="far fa-eye"></i></a>
+                                             <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
+                                             <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-lg-6 filter-item cat3 cat4">
+                              <div class="as-product list-view">
+                                   <div class="product-img">
+                                        <img src="assets/img/menu/menu_list_1_4.png" alt="Product Image" />
+                                   </div>
+                                   <div class="product-content">
+                                        <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
+                                             <span>Rated <strong class="rating">5.00</strong> out of 5 based
+                                                  on <span class="rating">1</span> customer rating</span>
+                                        </div>
+                                        <h3 class="product-title">
+                                             <a href="shop-details.html">Beef Masala</a>
+                                        </h3>
+                                        <p class="product-text">
+                                             Rapidiously repurpose customer directed markets. Rapidiously
+                                             enhance extensive.
+                                        </p>
+                                        <span class="price">$170.85</span>
+                                        <div class="actions">
+                                             <a href="#QuickView" class="icon-btn popup-content"><i
+                                                       class="far fa-eye"></i></a>
+                                             <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
+                                             <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-lg-6 filter-item cat2 cat5">
+                              <div class="as-product list-view">
+                                   <div class="product-img">
+                                        <img src="assets/img/menu/menu_list_1_5.png" alt="Product Image" />
+                                   </div>
+                                   <div class="product-content">
+                                        <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
+                                             <span>Rated <strong class="rating">5.00</strong> out of 5 based
+                                                  on <span class="rating">1</span> customer rating</span>
+                                        </div>
+                                        <h3 class="product-title">
+                                             <a href="shop-details.html">Martin Widenka</a>
+                                        </h3>
+                                        <p class="product-text">
+                                             Rapidiously repurpose customer directed markets. Rapidiously
+                                             enhance extensive.
+                                        </p>
+                                        <span class="price">$120.85</span>
+                                        <div class="actions">
+                                             <a href="#QuickView" class="icon-btn popup-content"><i
+                                                       class="far fa-eye"></i></a>
+                                             <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
+                                             <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-lg-6 filter-item cat1 cat6">
+                              <div class="as-product list-view">
+                                   <div class="product-img">
+                                        <img src="assets/img/menu/menu_list_1_6.png" alt="Product Image" />
+                                   </div>
+                                   <div class="product-content">
+                                        <div class="star-rating" role="img" aria-label="Rated 5.00 out of 5">
+                                             <span>Rated <strong class="rating">5.00</strong> out of 5 based
+                                                  on <span class="rating">1</span> customer rating</span>
+                                        </div>
+                                        <h3 class="product-title">
+                                             <a href="shop-details.html">Wendy Chicken</a>
+                                        </h3>
+                                        <p class="product-text">
+                                             Rapidiously repurpose customer directed markets. Rapidiously
+                                             enhance extensive.
+                                        </p>
+                                        <span class="price">$100.85</span>
+                                        <div class="actions">
+                                             <a href="#QuickView" class="icon-btn popup-content"><i
+                                                       class="far fa-eye"></i></a>
+                                             <a href="cart.html" class="icon-btn"><i class="far fa-cart-plus"></i></a>
+                                             <a href="wishlist.html" class="icon-btn"><i class="far fa-heart"></i></a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div> -->
+                    </div>
+               </div>
+               <div class="tab-pane fade" id="nav-two" role="tabpanel" aria-labelledby="nav-two-tab">
+                    <div class="row gy-4 filter-active py-3">
+                         {% for row in lunch_table %}
+                         {% comment %} <div class="col-lg-6 filter-item cat6 cat1">
+                              <div class="as-product list-view">
+                                   <div class="product-img">
+                                        <img src="{%static 'img/menu/menu_list_1_1.png'%}" alt="Product Image" />
+                                   </div>
+                                   <div class="product-content">
+                                        <h3 class="product-title">
+                                             <a href="shop-details.html">{{row.title}}</a>
+                                        </h3>
+                                        <p class="product-text">
+                                             Rapidiously repurpose customer directed markets. Rapidiously
+                                             enhance extensive.
+                                        </p>
+                                        <span class="price">$180.85<del>$350.99</del></span>
+                                        <div class="actions">
+                                             <a href="#QuickView" class="icon-btn popup-content"><i
+                                                       class="far fa-eye"></i></a>
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>    {% endcomment %}
+                         <div class="col-md-6 col-lg-4 col-xl-3 filter-item cat6 cat1">
+                              <div class="menu-card ">
+                                   <div class="menu-card_img"><img src="{{settings.CATEGORY}}{{row.image}}" alt="Menu Image" style="border-radius: 200px; width:250px;"></div>
+                                   <div class="menu-card_content">
+                                        <h3 class="menu-card_title box-title"><a href="shop-details.html">{{row.title}}</a>
+                                        </h3>
+                                        <p class="menu-card_text"></p><a href="/app1/menu/{{row.id}}" class="as-btn">BROWSE
+                                             MENU</a>
+                                   </div>
+                              </div>
+                         </div> 
+                         {% endfor %}
+                    </div>
+               </div>
+               <div class="tab-pane fade" id="nav-three" role="tabpanel" aria-labelledby="nav-three-tab">
+                    <div class="row gy-4 filter-active py-3">
+                         {% for row in snack_table %}
+                         <div class="col-md-6 col-lg-4 col-xl-3 filter-item cat6 cat1">
+                              <div class="menu-card ">
+                                   <div class="menu-card_img"><img src="{{settings.CATEGORY}}{{row.image}}" alt="Menu Image" style="border-radius: 200px; width:250px;"></div>
+                                   <div class="menu-card_content">
+                                        <h3 class="menu-card_title box-title"><a href="shop-details.html">{{row.title}}</a>
+                                        </h3>
+                                        <p class="menu-card_text"></p><a href="/app1/menu/{{row.id}}" class="as-btn">BROWSE
+                                             MENU</a>
+                                   </div>
+                              </div>
+                         </div> 
+                         {% endfor %}
+                    </div>
+               </div>  
+                 <div class="tab-pane fade" id="nav-four" role="tabpanel" aria-labelledby="nav-four-tab">
+                    <div class="row gy-4 filter-active py-3">
+                         {% for row in dinner_table %}
+                         <div class="col-md-6 col-lg-4 col-xl-3 filter-item cat6 cat1">
+                              <div class="menu-card ">
+                                   <div class="menu-card_img"><img src="{{settings.CATEGORY}}{{row.image}}" alt="Menu Image" style="border-radius: 200px; width:250px;"></div>
+                                   <div class="menu-card_content">
+                                        <h3 class="menu-card_title box-title"><a href="/app1/menu/{{row.id}}">{{row.title}}</a>
+                                        </h3>
+                                        <p class="menu-card_text"></p><a href="/app1/menu/{{row.id}}" class="as-btn">BROWSE
+                                             MENU</a>
+                                   </div>
+                              </div>
+                         </div> 
+                         {% endfor %}
+                    </div>
+               </div>
+          </div>
+     </div>
+</section>
 <section class="space bg-title" data-bg-src="{%static 'img/bg/feature_bg_2.png' %}">
      <div class="container">
-          <div class="title-area text-center"><span class="sub-title"><img class="icon"
-                         src="{%static 'img/icon/title_icon.svg' %}" alt="icon"> Our Strength</span>
-               <h2 class="sec-title text-white">Our Most Loved <span class="font-style text-theme">Foods</span>
+          <div class="title-area text-center">
+               <span class="sub-title"><img class="icon" src="{%static 'img/icon/title_icon.svg' %}" alt="icon" />
+                    Our Strength</span>
+               <h2 class="sec-title text-white">
+                    Our Most Loved <span class="font-style text-theme">Foods</span>
                </h2>
-               <p class="sec-text ms-auto me-auto text-white">Objectively pontificate quality models before
-                    intuitive information. Dramatically recaptiualize multifunctional materials.</p>
+               <p class="sec-text ms-auto me-auto text-white">
+                    Objectively pontificate quality models before intuitive information.
+                    Dramatically recaptiualize multifunctional materials.
+               </p>
           </div>
           <div class="feature-grid-wrap">
                <div class="feature-grid">
-                    <div class="feature-grid_img"><img src="{%static 'img/icon/feature_4_1.svg' %}" alt="Food"></div>
+                    <div class="feature-grid_img">
+                         <img src="{%static 'img/icon/feature_4_1.svg' %}" alt="Food" />
+                    </div>
                     <div>
                          <h3 class="feature-grid_title box-title text-white">Fast Foods</h3>
-                         <p class="feature-grid_text text-border">Professionally fabricate e-business vortals and
-                              impactful core competencie. Compellingly impact technically sound</p>
+                         <p class="feature-grid_text text-border">
+                              Professionally fabricate e-business vortals and impactful core
+                              competencie. Compellingly impact technically sound
+                         </p>
                     </div>
                </div>
                <div class="feature-grid">
-                    <div class="feature-grid_img"><img src="{%static 'img/icon/feature_4_2.svg' %}" alt="Food"></div>
+                    <div class="feature-grid_img">
+                         <img src="{%static 'img/icon/feature_4_2.svg' %}" alt="Food" />
+                    </div>
                     <div>
                          <h3 class="feature-grid_title box-title text-white">Healthy Foods</h3>
-                         <p class="feature-grid_text text-border">Professionally fabricate e-business vortals and
-                              impactful core competencie. Compellingly impact technically sound</p>
+                         <p class="feature-grid_text text-border">
+                              Professionally fabricate e-business vortals and impactful core
+                              competencie. Compellingly impact technically sound
+                         </p>
                     </div>
                </div>
                <div class="feature-grid">
-                    <div class="feature-grid_img"><img src="{%static 'img/icon/feature_4_3.svg' %}" alt="Food"></div>
+                    <div class="feature-grid_img">
+                         <img src="{%static 'img/icon/feature_4_3.svg' %}" alt="Food" />
+                    </div>
                     <div>
-                         <h3 class="feature-grid_title box-title text-white">Hygienic Foods</h3>
-                         <p class="feature-grid_text text-border">Professionally fabricate e-business vortals and
-                              impactful core competencie. Compellingly impact technically sound</p>
+                         <h3 class="feature-grid_title box-title text-white">
+                              Hygienic Foods
+                         </h3>
+                         <p class="feature-grid_text text-border">
+                              Professionally fabricate e-business vortals and impactful core
+                              competencie. Compellingly impact technically sound
+                         </p>
                     </div>
                </div>
           </div>

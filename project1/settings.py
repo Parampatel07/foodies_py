@@ -72,10 +72,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'project1.wsgi.application'
 HOTEL = '../media/hotels/';
 CATEGORY = '../../media/categories/';
-
+PRODUCT = '../../media/products/';
 SETTINGS_EXPORT = [
     'HOTEL',
     'CATEGORY',
+    'PRODUCT',
 ]
 
 # Database
@@ -90,10 +91,8 @@ DATABASES = {
         "PORT": '3306'
     }
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -119,7 +118,7 @@ TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ =  True
 
 
 # Static files (CSS, JavaScript, Images)

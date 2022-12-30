@@ -3,6 +3,10 @@ from django.http import HttpResponse
 from .myform import checkout_form
 from .models import shopkeeper
 from .models import category as category_table
+from .models import product as product_table
+import mysql.connector as con
+db = con.connect(host="localhost",user="root",passwd="",database='foodies',port=3306)
+print("Connection established....")
 
 # <---=========================== start of my functions ============================================--->
 def divide_parts(name_of_list, size_of_part):
@@ -26,10 +30,22 @@ def category(req):
     return render(req,"categories.html")
 
 def categoryflow(req,hotelid):
-    table = category_table.objects.filter(shopkeeperid=hotelid).values()
-    print(table)    
-    mytable= divide_parts(table,3)
-    return render(req,"categories.html",{"table":mytable})
+    count=1
+    # mytables=[]
+    # while count<=4:
+    #     answer=category_table.objects.filter(shopkeeperid=hotelid,blds=count).values()
+    #     mytables.append(answer[0])
+    #     # print(answer[0]) 
+    #     count+=1
+    # # print(mytables)
+    # breakfast_table = mytables.objects.filter(blds=1)
+    # print(breakfast_table)
+    # mytable= divide_parts(table,3)
+    breakfast_table=category_table.objects.filter(shopkeeperid=hotelid,blds=1)
+    lunch_table=category_table.objects.filter(shopkeeperid=hotelid,blds=2)
+    dinner_table=category_table.objects.filter(shopkeeperid=hotelid,blds=3)
+    snack_table=category_table.objects.filter(shopkeeperid=hotelid,blds=4)
+    return render(req,"categories.html",{"breakfast_table":breakfast_table,"lunch_table":lunch_table,"snack_table":snack_table,"dinner_table":dinner_table})
 
 def menu(req):
     # return HttpResponse("this is menu page")
@@ -37,12 +53,37 @@ def menu(req):
 
 def menuflow(req,categoryid):
     # return HttpResponse("this is menu page")
-    return render(req,"menu.html")
+    sql=f"SELECT p.*,c.blds from app1_product p,app1_category c where p.categoryid={categoryid} and c.id=p.categoryid ;"
+    # table= {}
+    # table = product_table.objects.raw(sql,translations=table)
+    # print(table)
+    mycursor = db.cursor(dictionary=True)
+    mycursor.execute(sql)
+    table = mycursor.fetchall()
+    blds_name=""
+    if table[0]['blds']==1:
+        blds_name = "Breakfast"
+    elif table[0]['blds']==2:
+        blds_name="Lunch"
+    elif table[0]['blds']==3:
+        blds_name="Dinner"
+    elif table[0]['blds']==4:
+        blds_name="Snack"
+    print(table)
+    print(blds_name)
+    
+    return render(req,"menu.html",{'table':table,'blds_name':blds_name})
 
-def product(req):
-    return render(req,"product.html")
+def product(req,productid):
+    table=product_table.objects.filter(id=productid).values()
+    mytable=[]
+    for i in table:
+        mytable.append(i)
+    print(mytable)
+    
+    return render(req,"product.html",{'mytable':mytable});
 
-def cart(req):
+def cart(req,cartid):
     return render(req,"cart.html")    
 
 def checkout(req):
@@ -60,6 +101,6 @@ def contactus(req):
 
 def hotel(req):
     table = shopkeeper.objects.filter().values()
-    mytable = list(divide_parts(table,3))
+    # mytable = list(divide_parts(table,3))
     # print("this is mytable ",mytable)
-    return render(req,"hotel.html",{"table":mytable})
+    return render(req,"hotel.html",{"table":table})

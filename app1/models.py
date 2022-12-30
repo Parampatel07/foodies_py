@@ -21,6 +21,7 @@ class category(models.Model):
     title=models.CharField(max_length=126)
     image=models.CharField(max_length=256)
     shopkeeperid=models.IntegerField(max_length=10)
+    blds=models.IntegerField(max_length=2)
     isdeleted=models.IntegerField(max_length=2)
     
 class user(models.Model):
@@ -58,7 +59,7 @@ class product(models.Model):
     categoryid=models.IntegerField(max_length=10)
     shopkeeperid=models.IntegerField(max_length=10)
     image=models.CharField(max_length=256)
-    bld=models.IntegerField(max_length=2)
+    # bld=models.IntegerField(max_length=2)
     stock=models.IntegerField(max_length=2)
     isdeleted=models.IntegerField(max_length=2)
     
