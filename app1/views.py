@@ -4,10 +4,17 @@ from .myform import checkout_form
 from .models import shopkeeper
 from .models import category as category_table
 from .models import product as product_table
+from .models import cart as cart_table
 import mysql.connector as con
+from django.shortcuts import render
+from json import dumps
+
 db = con.connect(host="localhost",user="root",passwd="",database='foodies',port=3306)
 print("Connection established....")
-
+mycursor = db.cursor()
+USER_ID = 1
+SERVER_URL = 'http://127.0.0.1:8000/'
+mycursor = db.cursor(dictionary=True)
 # <---=========================== start of my functions ============================================--->
 def divide_parts(name_of_list, size_of_part):
     # looping till length l
@@ -83,8 +90,14 @@ def product(req,productid):
     
     return render(req,"product.html",{'mytable':mytable});
 
-def cart(req,cartid):
-    return render(req,"cart.html")    
+def cart(req,productid):
+    sql = f"Select c.*,c.id as 'cart_id',p.* from app1_cart c,app1_product p where c.userid= '%s' and c.productid=p.id and billid=0" ;
+    values = [USER_ID]
+    mycursor.execute(sql,values)
+    table = mycursor.fetchall()
+    print(table)
+    dataJSON = dumps(table)
+    return render(req,"cart.html",{'table':dataJSON})
 
 def checkout(req):
     my_checkout_form = checkout_form
@@ -104,3 +117,40 @@ def hotel(req):
     # mytable = list(divide_parts(table,3))
     # print("this is mytable ",mytable)
     return render(req,"hotel.html",{"table":table})
+
+def quantity_plus(req,qid):
+    # table =[1,2,3,4,5]
+    print(qid)
+    table = cart_table.objects.filter(id=qid)
+    table = table.values()
+    print("this is table  ",table)
+    current_quantity = table[0]['quantity']
+    new_quantity = current_quantity + 1 
+    print("current quantity is ",current_quantity)
+    print("new quantity is ",new_quantity)
+    sql = f"Update app1_cart set quantity= %s where id = %s"
+    data = [new_quantity,qid]
+    mycursor.execute(sql,data)
+    return HttpResponse("Quantity added successfully")
+
+def quantity_minus(req,qid):
+    # table =[1,2,3,4,5]
+    print(qid)
+    table = cart_table.objects.filter(id=qid)
+    table = table.values()
+    print("this is table  ",table)
+    current_quantity = table[0]['quantity']
+    new_quantity = current_quantity - 1 
+    print("current quantity is ",current_quantity)
+    print("new quantity is ",new_quantity)
+    sql = f"Update app1_cart set quantity= %s where id = %s"
+    data = [new_quantity,qid]
+    mycursor.execute(sql,data)
+    return HttpResponse("Quantity subbed successfully")
+
+def delete_cart(req,pid):
+    sql = "Delete from app1_cart where id = %s";
+    values = [pid]
+    mycursor.execute(sql,values)
+    print("value deleted successfully ");
+    return HttpResponse("Quantity subbed successfully")

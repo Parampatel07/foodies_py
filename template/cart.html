@@ -1,133 +1,185 @@
 {% extends 'django_template.html' %} {% load static %} {% block content %}
 <div class="breadcumb-wrapper" data-bg-src="{% static 'img/breadcumb/breadcumb-bg.jpg' %}">
-    <div class="container z-index-common">
-        <div class="breadcumb-content">
-            <h1 class="breadcumb-title">
-                My <span class="font-style text-theme2">Cart</span>
-            </h1>
-            <!-- <ul class="breadcumb-menu"> -->
-            <!-- <li><a href="index.html">Home</a></li> -->
-            <!-- <li>Shop</li> -->
-            <!-- </ul> -->
-        </div>
-    </div>
+     <div class="container z-index-common">
+          <div class="breadcumb-content">
+               <h1 class="breadcumb-title">
+                    My <span class="font-style text-theme2">Cart</span>
+               </h1>
+               <!-- <ul class="breadcumb-menu"> -->
+               <!-- <li><a href="index.html">Home</a></li> -->
+               <!-- <li>Shop</li> -->
+               <!-- </ul> -->
+          </div>
+     </div>
 </div>
 
 <div class="as-cart-wrapper space-top space-extra-bottom">
-    <div class="container">
-         <form action="#" class="woocommerce-cart-form">
-              <table class="cart_table">
-                   <thead>
-                        <tr>
-                             <th class="cart-col-image">Image</th>
-                             <th class="cart-col-productname">Product Name</th>
-                             <th class="cart-col-price">Price</th>
-                             <th class="cart-col-quantity">Quantity</th>
-                             <th class="cart-col-total">Total</th>
-                             <th class="cart-col-remove">Remove</th>
-                        </tr>
-                   </thead>
-                   <tbody>
-                        <tr class="cart_item">
-                             <td data-title="Product"><a class="cart-productimage" href="shop-detailis.html"><img
-                                            width="91" height="91" src="{%static 'img/menu/menu_thumb_1_1.png'%}"
-                                            alt="Image"></a></td>
-                             <td data-title="Name"><a class="cart-productname" href="shop-detailis.html">Chicken
-                                       Vagetable</a></td>
-                             <td data-title="Price"><span class="amount"><bdi><span>$</span>18</bdi></span></td>
-                             <td data-title="Quantity">
-                                  <div class="quantity"> <input type="number"
-                                            class="qty-input" value="1" min="1" max="99"> 
-                                  </div>
-                             </td>
-                             <td data-title="Total"><span class="amount"><bdi><span>$</span>18</bdi></span></td>
-                             <td data-title="Remove"><a href="#" class="remove"><i
-                                            class="fal fa-trash-alt"></i></a></td>
-                        </tr>
-                        
-                        <tr class="cart_item">
-                            <td data-title="Product"><a class="cart-productimage" href="shop-detailis.html"><img
-                                           width="91" height="91" src="{%static 'img/menu/menu_thumb_1_1.png'%}"
-                                           alt="Image"></a></td>
-                            <td data-title="Name"><a class="cart-productname" href="shop-detailis.html">Chicken
-                                      Vagetable</a></td>
-                            <td data-title="Price"><span class="amount"><bdi><span>$</span>18</bdi></span></td>
-                            <td data-title="Quantity">
-                                 <div class="quantity"> <input type="number"
-                                           class="qty-input" value="1" min="1" max="99"> 
-                                 </div>
-                            </td>
-                            <td data-title="Total"><span class="amount"><bdi><span>$</span>18</bdi></span></td>
-                            <td data-title="Remove"><a href="#" class="remove"><i
-                                           class="fal fa-trash-alt"></i></a></td>
-                       </tr>
-                       
-                       <tr class="cart_item">
-                        <td data-title="Product"><a class="cart-productimage" href="shop-detailis.html"><img
-                                       width="91" height="91" src="{%static 'img/menu/menu_thumb_1_1.png'%}"
-                                       alt="Image"></a></td>
-                        <td data-title="Name"><a class="cart-productname" href="shop-detailis.html">Chicken
-                                  Vagetable</a></td>
-                        <td data-title="Price"><span class="amount"><bdi><span>$</span>18</bdi></span></td>
-                        <td data-title="Quantity">
-                             <div class="quantity"> <input type="number"
-                                       class="qty-input" value="1" min="1" max="99"> 
-                             </div>
-                        </td>
-                        <td data-title="Total"><span class="amount"><bdi><span>$</span>18</bdi></span></td>
-                        <td data-title="Remove"><a href="#" class="remove"><i
-                                       class="fal fa-trash-alt"></i></a></td>
-                   </tr>
-                   <tr>
-                    <td colspan="6" class="actions">
-                         <div class="as-cart-coupon"><input type="text" class="form-control"
-                                   placeholder="Coupon Code..."> <button type="submit"
-                                   class="as-btn">Apply Coup0on</button></div><button type="submit"
-                              class="as-btn">Update cart</button> <a href="shop.html"
-                              class="as-btn">Continue Shopping</a>
-                    </td>
-               </tr>
-                   </tbody>
-              </table>
-         </form>
-         <div class="row justify-content-end">
-              <div class="col-md-8 col-lg-7 col-xl-6">
-                   <h2 class="h4 summary-title">Cart Totals</h2>
-                   <table class="cart_totals">
-                        <tbody>
-                             <tr>
-                                  <td>Cart Subtotal</td>
-                                  <td data-title="Cart Subtotal"><span
-                                            class="amount"><bdi><span>$</span>47</bdi></span></td>
-                             </tr>
-                             <tr class="shipping">
-                                  <th>Shipping and Handling</th>
-                                  <td data-title="Shipping and Handling">
-                                       <ul class="woocommerce-shipping-methods list-unstyled">
-                                            <li><input type="radio" id="free_shipping" name="shipping_method"
-                                                      class="shipping_method"> <label for="free_shipping">Free
-                                                      shipping</label></li>
-                                            <li><input type="radio" id="flat_rate" name="shipping_method"
-                                                      class="shipping_method" checked="checked"> <label
-                                                      for="flat_rate">Flat rate</label></li>
-                                       </ul>
-                                       <p class="woocommerce-shipping-destination">Shipping options will be
-                                            updated during checkout.</p>
-                                  </td>
-                             </tr>
-                        </tbody>
-                        <tfoot>
-                             <tr class="order-total">
-                                  <td>Order Total</td>
-                                  <td data-title="Total"><strong><span
-                                                 class="amount"><bdi><span>$</span>47</bdi></span></strong></td>
-                             </tr>
-                        </tfoot>
-                   </table>
-                   <div class="wc-proceed-to-checkout mb-30"><a href="checkout" class="as-btn">Proceed to
-                             checkout</a></div>
-              </div>
-         </div>
-    </div>
+     <div class="container">
+          <form action="#" class="woocommerce-cart-form">
+               <table class="cart_table">
+                    <thead>
+                         <tr>
+                              <th class="cart-col-image">Image</th>
+                              <th class="cart-col-productname">Product Name</th>
+                              <th class="cart-col-price">Price</th>
+                              <th class="cart-col-quantity">Quantity</th>
+                              <th class="cart-col-total">Total</th>
+                              <th class="cart-col-remove">Remove</th>
+                         </tr>
+                    </thead>
+                    <tbody id="mytable">
+
+                    </tbody>
+               </table>
+          </form>
+
+          <div class="row justify-content-end">
+               <div class="col-md-8 col-lg-7 col-xl-6">
+                    <h2 class="h4 summary-title">Cart Totals</h2>
+                    <table class="cart_totals">
+                         <tbody>
+                              <tr>
+                                   <td>Cart Subtotal</td>
+                                   <td data-title="Cart Subtotal">
+                                        <span class="amount"><bdi><span>$</span><span class="cart_sub_total"></span></bdi></span>
+                                   </td>
+                              </tr>
+                              <tr>
+                                   <td>Discount</td>
+                                   <td data-title="Cart Subtotal">
+                                        <span class="amount"><bdi><span>$</span>0</bdi></span>
+                                   </td>
+                              </tr>
+                         </tbody>
+                         <tfoot>
+                              <tr class="order-total">
+                                   <td>Order Total</td>
+                                   <td data-title="Total">
+                                        <strong><span class="amount"><bdi><span>$</span><span class="cart_final_total"></span></bdi></span></strong>
+                                   </td>
+                              </tr>
+                         </tfoot>
+                    </table>
+                    <div class="wc-proceed-to-checkout mb-30">
+                         <a href="checkout" class="as-btn">Proceed to checkout</a>
+                    </div>
+               </div>
+          </div>
+     </div>
 </div>
+
+
+<script type="text/javascript">
+     $(document).ready(function () {
+          console.log("Jquery working.. ");
+          var data = JSON.parse("{{ table | escapejs}}");
+          console.log("this is data  ", data);
+          count = 0;
+          var amount = 0;
+          var total_quantity = 1;
+          var quantity = 0;
+          var table = '';
+          var lenght = data.length;
+          var cart_total = 0 ;
+          while (count < lenght) {
+               amount = data[count].price * data[count].quantity;
+               cart_total = cart_total + amount;
+               table = `<tr class="cart_item">
+                    <td data-title="Product">
+                         <a class="cart-productimage" href=""><img width="91" height="91"
+                                   src="../../media/products/${data[count].image}" alt="Image" /></a>
+                    </td>
+                    <td data-title="Name">
+                         <a class="cart-productname" href="">${data[count].title}</a>
+                    </td>
+                    <td data-title="Price">
+                         <span class="amount"><bdi><span>$</span><span
+                                        class="product_price${data[count].cart_id}">${data[count].price}</span></bdi></span>
+                    </td>
+                    <td data-title="Quantity">
+                         <div class="quantity">
+                              <button type="button" data-id="${data[count].cart_id}" class="minusq"><i
+                                        class="fa-solid fa-minus"></i></button>
+                              <input type="number" class="qty-input myquantity${data[count].cart_id}" value="${data[count].quantity}"
+                                   min="1" max="99" readonly />
+                              <button type="button" data-id="${data[count].cart_id}" class="addq"><i
+                                        class="fa-solid fa-plus"></i></button>
+                         </div>
+                    </td>
+                    <td data-title="Total">
+                         <span class="amount"><bdi><span>$</span><span
+                                        class="amountq${data[count].cart_id}">${amount}</span></bdi></span>
+                    </td>
+                    <td data-title="Remove">
+                         <button class="remove" data-id="${data[count].cart_id}"><i class="fal fa-trash-alt"></i></button>
+                    </td>
+               </tr>`
+               $("#mytable").append(table);
+               count++;
+          }
+          console.log("cart total ",cart_total);
+          $('.cart_sub_total').html(cart_total);
+          $('.cart_final_total').html(cart_total);
+          $('.addq').click(function () {
+               var additional_str = $(this).attr('data-id');
+               var product_price = $('.product_price' + additional_str).html();
+               myquantity = '.myquantity' + additional_str;
+               total_quantity = parseInt($(".myquantity" + additional_str).val());
+               total_quantity = total_quantity + 1;
+               var amount = product_price * total_quantity;
+               $('.amountq' + additional_str).html(amount);
+               $(myquantity).val(total_quantity);
+               cart_total = parseInt(cart_total) + parseInt(product_price);
+               $('.cart_sub_total').html(cart_total);
+               $('.cart_final_total').html(cart_total);
+               console.log("cart total add ",cart_total);
+               console.log("product prize is ", product_price);
+               console.log("additional string is ", additional_str);
+               console.log("Quantity is changed it is ", quantity);
+               console.log("amount is ", amount);
+               var page = "{% url 'update_quantity_plus' 0  %}".replace('0', additional_str);
+               $.get(page, function (data, status) {
+                    console.log("page is ", page);
+                    console.log("data is ", data);
+               });
+
+          });
+          $('.minusq').click(function () {
+               var additional_str = $(this).attr('data-id');
+               var product_price = $('.product_price' + additional_str).html();
+               myquantity = '.myquantity' + additional_str;
+               total_quantity = parseInt($(".myquantity" + additional_str).val());
+               if (total_quantity <= 1) {
+                    $(myquantity).val(total_quantity);
+               }
+               else {
+                    total_quantity = total_quantity - 1;
+                    var amount = product_price * total_quantity;
+                    cart_total = parseInt(cart_total) - parseInt(product_price);
+                    $('.cart_sub_total').html(cart_total);
+                    $('.cart_final_total').html(cart_total);
+                    console.log("cart total minus ",cart_total);
+                    $('.amountq' + additional_str).html(amount);
+                    $(myquantity).val(total_quantity);
+                    var page = "{% url 'update_quantity_minus' 0  %}".replace('0', additional_str);
+                    $.get(page, function (data, status) {
+                         console.log("page is ", page);
+                         console.log("data is ", data);
+                    });
+               }
+          });
+          
+          $('.remove').click(function(){
+               console.log("remove button clicked");
+               var additional_str = $(this).attr('data-id');
+               console.log("additional str ",additional_str);
+               var page = "{% url 'delete_cart' 0  %}".replace('0', additional_str);
+               $.get(page,function(data,status){
+                    console.log(data);
+               });
+               console.log($(this).parent().parent());
+               $(this).parent().parent().fadeOut();
+          });
+     });
+</script>
 {% endblock %}
