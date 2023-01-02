@@ -31,14 +31,13 @@
                          <p class="price">${{row.price}}<del>$350.99</del></p>
                          <p class="text">{{row.desc}}</p>
                          <div class="actions">
-                              <a class="as-btn" href="/app1/cart/{{row.id}}">Add to Cart</a> <a class="icon-btn" href="#">
+                              <button class="as-btn" id="add_to_cart" data-id="{{row.id}}" >Add to Cart</button> <a class="icon-btn" href="#">
                               <i class="fal fa-heart"></i>
                               </a>
                          </div>
                          <div class="product_meta"><span class="sku_wrapper">SKU: <span class="sku">C2546</span></span>
                               <span class="posted_in">Category: Chicken Pizza</span>
                               <span>Tags: Grill</span></div>
-                      
                     </div>
                </div>
                {% endfor %}
@@ -154,4 +153,21 @@
           </div>
      </div>
 </section>
+<script >
+     $(document).ready(function(){
+          console.log("Jquery working ");
+          $('#add_to_cart').click(function(){
+               console.log("Add to cart click ");
+               var additional_str = $(this).attr("data-id");
+               console.log("additional str is ",additional_str);
+               var page = "{% url 'add_to_cart' 0  %}".replace('0', additional_str);
+               console.log("page is ",page);
+               $.get(page,function(data,status){
+                    console.log(data);
+               });
+               var new_page = "/app1/cart/0".replace('0',additional_str);
+               window.location.replace(new_page);
+          });
+     })
+</script>
 {% endblock %}

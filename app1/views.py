@@ -154,3 +154,10 @@ def delete_cart(req,pid):
     mycursor.execute(sql,values)
     print("value deleted successfully ");
     return HttpResponse("Quantity subbed successfully")
+
+def add_to_cart(req,pid):
+    print("this is cart ")
+    sql = "Insert into app1_cart (productid,billid,userid,quantity) values (%s,%s,%s,%s) ";
+    values = [pid,0,USER_ID,1]
+    mycursor.execute(sql,values)
+    return HttpResponse("this is add to cart ")

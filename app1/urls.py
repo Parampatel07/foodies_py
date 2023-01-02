@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import home,category,menu,product,cart,checkout,blog,aboutdetail,contactus,hotel,categoryflow,menuflow,quantity_plus,quantity_minus,delete_cart
+from .views import home,category,menu,product,cart,checkout,blog,aboutdetail,contactus,hotel,categoryflow,menuflow,quantity_plus,quantity_minus,delete_cart,add_to_cart
 
 urlpatterns = [
     path('',home,name="home"),
@@ -17,4 +17,5 @@ urlpatterns = [
     path('update_quantity_plus/<int:qid>',quantity_plus,name="update_quantity_plus"),
     path('update_quantity_minus/<int:qid>',quantity_minus,name="update_quantity_minus"),
     path('delete_cart/<int:pid>',delete_cart,name="delete_cart"),
+    path('add_to_cart/<int:pid>',add_to_cart,name="add_to_cart"),
 ]
